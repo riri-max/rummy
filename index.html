@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine’s Question</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url('https://img.freepik.com/premium-photo/lots-halved-coconuts-flat-lay-pattern-coconut-background-top-view-coconut-wallpaper_124507-16207.jpg'); /* Coconut Background */
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        .container {
+            margin-top: 20vh;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 15px;
+            display: inline-block;
+        }
+        button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .yes { background-color: #28a745; color: white; }
+        .maybe { background-color: #ffc107; color: black; }
+        .no { background-color: #dc3545; color: white; }
+    </style>
+</head>
+<body>
+
+<div class="container" id="questionBox">
+    <h1>Rumaitha Sultan Mohammed. Will you be my Valentine?? ❤️</h1>
+    <button class="yes" onclick="nextQuestion('A')">A. Yes 100%</button>
+    <button class="maybe" onclick="nextQuestion('B')">B. Mmh.. Idk</button>
+    <button class="maybe" onclick="nextQuestion('C')">C. Can I think about it</button>
+    <button class="no" onclick="nextQuestion('D')">D. No sorry</button>
+    <button class="no" onclick="nextQuestion('E')">E. Hell NO 🙅‍♀️👎</button>
+</div>
+
+<script>
+    function nextQuestion(answer) {
+        let questionBox = document.getElementById("questionBox");
+
+        if (answer === 'A') {
+            // If she picks Yes, ask the next question
+            questionBox.innerHTML = `
+                <h1>Are you sure? Cause you know we probably won’t do anything 😂😂😂</h1>
+                <button class="yes" onclick="finalMessage('yes')">Yes</button>
+                <button class="no" onclick="finalMessage('no')">No</button>
+            `;
+        } else {
+            // If she picks anything else, show the sad goodbye message
+            document.body.style.backgroundImage = "url('https://cdn3.emoji.gg/emojis/7488-sad-pleading-blob.gif')"; // Big sad emoji
+            questionBox.innerHTML = `
+                <h1>Okay sorry for bothering you Byee 😣</h1>
+            `;
+        }
+    }
+
+    function finalMessage(answer) {
+        let questionBox = document.getElementById("questionBox");
+
+        if (answer === 'yes') {
+            questionBox.innerHTML = `
+                <h1>Yesss you just made someone here really happy! I love youuu so so so much 😙😙🧡 babe</h1>
+            `;
+        } else {
+            document.body.style.backgroundImage = "url('https://cdn3.emoji.gg/emojis/7488-sad-pleading-blob.gif')"; // Sad emoji again
+            questionBox.innerHTML = `<h1>Okay sorry for bothering you Byee 😣</h1>`;
+        }
+    }
+</script>
+
+</body>
+</html>
